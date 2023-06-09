@@ -1,0 +1,153 @@
+﻿@model IEnumerable<SunExample.Models.Employee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+@if (TempData["msg"] != null)
+{
+    <div class="alert alert-info">
+        <strong>Info :</strong>@TempData["msg"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span>x</span>
+        </button>
+    </div>
+
+}
+
+@if (TempData["succmsg"] != null)
+{
+    <div class="alert alert-success">
+        <strong>Success !</strong>@TempData["succmsg"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span>x</span>
+        </button>
+    </div>
+
+}
+@if (TempData["Errmsg"] != null)
+{
+    <div class="alert alert-danger">
+        <strong>Error !</strong>@TempData["Errmsg"]
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span>x</span>
+        </button>
+    </div>
+
+}
+
+
+<p>
+    @Html.ActionLink("Create New Employee", "Create", null, new { @class = "btn btn-primary" })
+</p>
+<table class="table table-bordered table-hover table-responsive">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Serno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Dob)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PassNo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Nationality)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Pob)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VisaId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VisaType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Branch)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BasicSalary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Allowance)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Salarydeduct)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NetSalary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            <label>Action</label>
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Serno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EmpName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Dob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PassNo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Nationality)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Pob)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VisaId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VisaType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Branch)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BasicSalary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Allowance)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Salarydeduct)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.NetSalary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.EmpID }, new { @class = "btn btn-primary" }) |
+
+                @Html.ActionLink("Delete", "Delete", new { id = item.EmpID }, new { @class = "btn btn-danger" })
+            </td>
+        </tr>
+    }
+
+</table>
